@@ -36,3 +36,6 @@ Click the number and operator buttons to input your expression.
 Click = to calculate the result.
 
 Click C to clear the input.
+
+Live demo :
+https://a-simple-calculator-j2q8nlkbw-paras941s-projects.vercel.app
