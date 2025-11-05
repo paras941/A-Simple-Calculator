@@ -1,32 +1,55 @@
-let expr = "";                         
+let expr = "";
 const display = document.getElementById("display");
 
 
-document.querySelectorAll("button").forEach((btn) => {
+document.querySelectorAll(".btn").forEach((btn) => {
   btn.addEventListener("click", () => handle(btn.textContent.trim()));
 });
 
 function handle(value) {
-  if (value === "=") {
-    calculate();
-    return;
+  switch (value) {
+    case "=":
+      calculate();
+      break;
+    case "C":
+      expr = "";
+      render();
+      break;
+    case "DEL":
+
+      expr = expr.slice(0, -1);
+      render();
+      break;
+    default:
+
+      expr += value;
+      render();
+      break;
   }
-  if (value === "C") {
-    expr = "";
-    render();
-    return;
-  }
- 
-  expr += value;
-  render();
 }
 
 function calculate() {
+
+  if (expr === "") {
+    return;
+  }
+
   try {
-    
-    const result = eval(expr);         
-    expr = (result !== undefined) ? String(result) : "";
+
+    const result = eval(expr);
+
+
+    if (!isFinite(result)) {
+      expr = "";
+      display.value = "Error";
+      return;
+    }
+
+
+    expr = String(result);
+
   } catch {
+
     expr = "";
     display.value = "Error";
     return;
@@ -35,5 +58,9 @@ function calculate() {
 }
 
 function render() {
-  display.value = expr;
+
+  display.value = (expr === "") ? "0" : expr;
 }
+
+
+render();
