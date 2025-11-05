@@ -6,7 +6,7 @@ This is a basic web-based calculator built using HTML, CSS, and JavaScript.
 It allows users to perform addition, subtraction, multiplication, division, and supports decimal numbers.
 It also has clear (C) and equal (=) buttons for easy calculation.
 
-- project preview : [live demo here]()
+- project preview : [live demo here](https://paras941.github.io/basic-js-calculator/)
 
 💡 Features
 
